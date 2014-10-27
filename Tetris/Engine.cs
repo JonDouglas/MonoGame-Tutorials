@@ -57,7 +57,7 @@ namespace Tetris
 		/// </summary>
 		protected override void Initialize ()
 		{
-			Window.Title = "MonoGame XNA Tetris 2D";
+			Window.Title = "Jon Loves Tetris!";
 
 			graphics.PreferredBackBufferHeight = 600;
 			graphics.PreferredBackBufferWidth = 800;
@@ -66,9 +66,10 @@ namespace Tetris
 			this.TargetElapsedTime = TimeSpan.FromSeconds (1.0f / 10.0f);
 
 			// Try to open file if it exists, otherwise create it
-            //using (FileStream fileStream = File.Open ("record.dat", FileMode.OpenOrCreate)) {
-            //    fileStream.Close ();
-            //}
+            using (FileStream fileStream = File.Open("record.dat", FileMode.OpenOrCreate))
+            {
+                fileStream.Close();
+            }
 
 			base.Initialize ();
 		}
