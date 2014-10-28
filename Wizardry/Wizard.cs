@@ -22,10 +22,12 @@ namespace Wizardry
 
         enum State
         {
-            Walking
+            Walking,
+            Jumping
         }
         State mCurrentState = State.Walking;
 
+        private Vector2 mStartingPosition = Vector2.Zero;
         Vector2 mDirection = Vector2.Zero;
         Vector2 mSpeed = Vector2.Zero;
 
@@ -41,6 +43,7 @@ namespace Wizardry
         {
             KeyboardState currentKeyboardState = Keyboard.GetState();
             UpdateMovement(currentKeyboardState);
+            UpdateJump(currentKeyboardState);
             mPreviousKeyboardState = currentKeyboardState;
 
             base.Update(gameTime, mSpeed, mDirection);
@@ -74,6 +77,44 @@ namespace Wizardry
                     mSpeed.Y = WIZARD_SPEED;
                     mDirection.Y = MOVE_DOWN;
                 }
+            }
+        }
+
+        private void UpdateJump(KeyboardState currentKeyboardState)
+        {
+            if (mCurrentState == State.Walking)
+            {
+                if (currentKeyboardState.IsKeyDown(Keys.Space) == true &&
+                    mPreviousKeyboardState.IsKeyDown(Keys.Space) == false)
+                {
+                    Jump();
+                }
+            }
+
+            if (mCurrentState == State.Jumping)
+            {
+                if (mStartingPosition.Y - Position.Y > 150)
+                {
+                    mDirection.Y = MOVE_DOWN;
+                }
+
+                if (Position.Y > mStartingPosition.Y)
+                {
+                    Position.Y = mStartingPosition.Y;
+                    mCurrentState = State.Walking;
+                    mDirection = Vector2.Zero;
+                }
+            }
+        }
+
+        private void Jump()
+        {
+            if (mCurrentState != State.Jumping)
+            {
+                mCurrentState = State.Jumping;
+                mStartingPosition = Position;
+                mDirection.Y = MOVE_UP;
+                mSpeed = new Vector2(WIZARD_SPEED, WIZARD_SPEED);
             }
         }
     }
