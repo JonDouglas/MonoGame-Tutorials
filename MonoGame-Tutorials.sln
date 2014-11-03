@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdditiveBlending", "Additiv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextureAtlases", "TextureAtlases\TextureAtlases.csproj", "{877ADF5D-1743-4407-B221-23110C2BDCB2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParticleEngine", "ParticleEngine\ParticleEngine.csproj", "{52739E37-B58E-4194-901F-D02A72567E6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -33,6 +35,10 @@ Global
 		{877ADF5D-1743-4407-B221-23110C2BDCB2}.Debug|x86.Build.0 = Debug|x86
 		{877ADF5D-1743-4407-B221-23110C2BDCB2}.Release|x86.ActiveCfg = Release|x86
 		{877ADF5D-1743-4407-B221-23110C2BDCB2}.Release|x86.Build.0 = Release|x86
+		{52739E37-B58E-4194-901F-D02A72567E6B}.Debug|x86.ActiveCfg = Debug|x86
+		{52739E37-B58E-4194-901F-D02A72567E6B}.Debug|x86.Build.0 = Debug|x86
+		{52739E37-B58E-4194-901F-D02A72567E6B}.Release|x86.ActiveCfg = Release|x86
+		{52739E37-B58E-4194-901F-D02A72567E6B}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
