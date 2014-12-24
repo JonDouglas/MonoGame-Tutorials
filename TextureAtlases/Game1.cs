@@ -19,6 +19,7 @@ namespace TextureAtlases
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         private AnimatedSprite animatedSprite;
+        private AnimatedSprite animatedSprite2;
 
         public Game1()
             : base()
@@ -51,6 +52,9 @@ namespace TextureAtlases
             Texture2D texture = Content.Load<Texture2D>("SmileyWalk");
             animatedSprite = new AnimatedSprite(texture, 4, 4);
 
+            Texture2D texture2 = Content.Load<Texture2D>("RunningCat");
+            animatedSprite2 = new AnimatedSprite(texture2, 4, 2);
+
             // TODO: use this.Content to load your game content here
         }
 
@@ -75,6 +79,7 @@ namespace TextureAtlases
 
             // TODO: Add your update logic here
             animatedSprite.Update();
+            animatedSprite2.Update();
 
             base.Update(gameTime);
         }
@@ -89,6 +94,8 @@ namespace TextureAtlases
 
             // TODO: Add your drawing code here
             animatedSprite.Draw(spriteBatch, new Vector2(400, 200));
+
+            animatedSprite2.Draw(spriteBatch, new Vector2(0, 0));
 
             base.Draw(gameTime);
         }
